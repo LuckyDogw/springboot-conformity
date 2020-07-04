@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--/*@thymesVar id="hello" type=""*/-->
+    <p th:text="${hello}">xxx</p>
+
+    <form id="login" th:action="@{/demo}"  method="post">
+        <button>提交</button>
+    </form>
+
+    <table border="1" >
+    <tr>
+        <td>下标</td>
+        <td>用户名</td>
+        <td>密码</td>
+        <td>姓名</td>
+    </tr>
+    <tr th:each="user,statu:${users}">
+        <td>
+            <span th:text="${statu.index+1}"></span>
+        </td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.password}"></td>
+        <td th:text="${user.name}"></td>
+    </tr>
+    </table> 
+
+<!--&#45;&#45;[[${hello}]]&#45;&#45;-->
+</body>
+</html>
